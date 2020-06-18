@@ -4,51 +4,22 @@ $(document).ready(function(){
 
 var init_pos_lt="-150px";
 var init_pos_rt="150px";
-var door_sound=document.getElementById("door_sound");
 
-
-$("body").keypress(function(event){
-
-if(event.keyCode==13){
-
-door_animate();
-
-}
-
-
+$(".container_door").click(function(){//here click function start
+door_anim();
+setInterval(door_anim,1000);
 
 });
 
 
-
-$(".container_door").click(function(){//here click function start
-
-
-door_animate(2000);
-
-});// here clikc fucntion ended
+function door_anim(){
 
 
-
-function door_animate(close_delay){
-
-door_rt=$(".active_door_rt").eq(0);
-door_lt=$(".active_door_lt").eq(0);
-
-door_lt.delay(0).animate({left:-150})
-
-door_rt.delay(0).animate({left:150})
-
-door_lt.delay(close_delay).animate({left:0})
-
-door_rt.delay(close_delay).animate({left:0})
+$(".active_door_lt").delay(0).animate({left:-150}).delay(1000).animate({left:0},1000);
+$(".active_door_rt").delay(0).animate({left:150}).delay(1000).animate({left:0},1000);
 
 
 }
-
-
-
-
 
 
 });
